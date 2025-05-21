@@ -1,46 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>CHÚC MỪNG 8/3</title>
-    <link type="text/css" rel="stylesheet" href="./asset/style.css">
-    <script type="text/javascript" src="./asset/jquery.min.js"></script>
-    <script type="text/javascript" src="./asset/jscex.min.js"></script>
-    <script type="text/javascript" src="./asset/jscex-parser.js"></script>
-    <script type="text/javascript" src="./asset/jscex-jit.js"></script>
-    <script type="text/javascript" src="./asset/jscex-builderbase.min.js"></script>
-    <script type="text/javascript" src="./asset/jscex-async.min.js"></script>
-    <script type="text/javascript" src="./asset/jscex-async-powerpack.min.js"></script>
-    <script type="text/javascript" src="./asset/functions.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./asset/love.js" charset="utf-8"></script>
+  <meta charset="UTF-8">
+  <title>Chúc mừng ngày 1/6</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #ffe6f2;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      color: #ff3399;
+    }
+
+    h1 {
+      margin-top: 60px;
+      font-size: 40px;
+    }
+
+    #message {
+      font-size: 24px;
+      max-width: 800px;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+
+    .heart {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 4s linear forwards;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: red;
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <div id="main">
-        <div id="wrap">
-            <div id="text" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;">
-                <div id="code">
-                    <font color="#000"><span class="say">Chúc mừng 8/3 đến những bông hoa rực rỡ đã làm bạn với tớ những năm tháng quaaaa!!</span><br>
-                        <span class="say"> </span><br>
-                        <span class="say">DEAR TRANG.</span><br>
-                        <span class="say">✍️Nhân ngày 8/3 này, tớ xin chúc cậu mãi xinh đẹp, đáng yêu, luôn hạnh phúc. Chúc cậu luôn gặp may mắn trong cuộc sống và vui vẻ mọi lúc mọi nơi. Nụ cười của cậu còn sáng hơn ánh mặt trời đấyyyyyy.</span><br>
-                        <span class="say">✍️Chúc cậu ngày 8/3 thật vui vẻ và tràn đầy sự xinh đẹp cùng với nhiều yêu thương.Chúc bạn 8/3 luôn xinh đẹp như hoa hậu, giàu có như đại gia và hạnh phúc như bà hoàng!😁</span><br>
-                        <span class="say"><span class="space"><img width="100px" height="100px" src="image/tym.png" alt=""><br>
-                        <span class="say"><span class="space"></span> --QUÀ CỦA PHATSS-- </span>
-                    </font>
-                    </p>
-                </div>
-            </div>
-            <canvas id="canvas" width="1100" height="680"></canvas>
-        </div>
 
-    </div>
+  <h1>Chúc mừng ngày 1/6</h1>
+  <div id="message">
+    Nhân ngày Quốc tế Thiếu nhi, chúc em bé luôn cười thật tươi,<br>
+    học giỏi, ăn ngoan, ngủ ngon và mỗi ngày đều là một cuộc phiêu lưu vui vẻ!<br>
+    Mong rằng em mãi ngây thơ, trong sáng, và đáng yêu như những thiên thần nhỏ nhé!
+  </div>
 
-    <audio id="myAudio" autoplay="autoplay">
-        <source src="music/nhac.mp3" type="audio/mp3" />
-    </audio>
+  <audio autoplay loop>
+    <source src="music/nhac.mp3" type="audio/mp3">
+    Trình duyệt của bạn không hỗ trợ phát nhạc.
+  </audio>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }
+
+    const heartInterval = setInterval(createHeart, 250);
+    setTimeout(() => clearInterval(heartInterval), 15000); // bay trong 15 giây
+  </script>
 
 </body>
-<script src="./asset/script.js"></script>
-
 </html>
